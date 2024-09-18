@@ -5,8 +5,9 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: ['Bai Jamjuree', 'sans-serif'],
+    },
   },
   plugins: [],
 }
-
