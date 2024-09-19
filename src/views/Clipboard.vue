@@ -6,7 +6,7 @@
   <div class="clipboard-container">
     <!-- Hero Section -->
     <section id="hero">
-      <div class="max-w-6xl mx-auto text-center mb-40 px-10 pt-16">
+      <div class="section-container mb-40 px-10 pt-16">
         <svg width="125" height="125" class="mx-auto my-16" xmlns="http://www.w3.org/2000/svg">
           <g stroke="#26BBA4" stroke-width="10" fill="none" fill-rule="evenodd">
             <circle cx="62.5" cy="62.5" r="57.5"/>
@@ -14,7 +14,7 @@
                   stroke-linecap="round"/>
           </g>
         </svg>
-        <h3 class="mb-8 text-4xl font-bold text-darkGrayishBlue md:text-5xl">
+        <h3>
           A history of everything you copy
         </h3>
         <p class="max-w-3xl mx-auto mb-10 text-2xl text-grayishBlue">
@@ -33,10 +33,31 @@
         </div>
       </div>
     </section>
+
+    <!-- Snippet Section -->
+    <section id="snippets">
+      <div class="section-container my-20 px-10">
+        <h3>
+          Keep track of your snippets
+        </h3>
+        <p class="max-w-3xl mx-auto mb-24 text-xl leading-9 text-center text-grayishBlue">
+          Clipboard instantly stores any item you copy in the cloud, meaning you can access your snippets
+          immediately on all your devices. Our Mac and iOS apps help you organize everything.
+        </p>
+      </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
+h3 {
+  @apply mb-8 text-4xl font-bold text-darkGrayishBlue md:text-5xl;
+}
+
+.section-container {
+  @apply max-w-6xl mx-auto text-center;
+}
+
 .clipboard-container {
   @apply bg-[url('../assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain
 }
@@ -46,4 +67,5 @@
     @apply bg-[url('../assets/clipboard/images/bg-header-mobile.png')]
   }
 }
+
 </style>
