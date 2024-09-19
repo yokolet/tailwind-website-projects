@@ -41,6 +41,34 @@ const sitems = ref<ISItem[]>([
     description: 'Quick preview of all snippets on your Clipboard for easy access.',
     image: '/src/assets/clipboard/images/icon-preview.svg',
   },
+]);
+
+const refImages = ref<string[]>([
+    '/src/assets/clipboard/images/logo-google.png',
+    '/src/assets/clipboard/images/logo-ibm.png',
+    '/src/assets/clipboard/images/logo-microsoft.png',
+    '/src/assets/clipboard/images/logo-hp.png',
+    '/src/assets/clipboard/images/logo-vector-graphics.png',
+]);
+
+const footerMenus = ref<string[][]>([
+    [
+        'FAQs',
+        'Contact Us',
+    ],
+    [
+        'Privacy Policy',
+        'Press Kit',
+    ],
+    [
+        'Install Guide',
+    ],
+]);
+
+const socialIcons = ref<string[]>([
+    '/src/assets/clipboard/images/icon-facebook.svg',
+    '/src/assets/clipboard/images/icon-twitter.svg',
+    '/src/assets/clipboard/images/icon-instagram.svg',
 ])
 </script>
 
@@ -143,6 +171,63 @@ const sitems = ref<ISItem[]>([
         </div>
       </div>
     </section>
+
+    <!-- References Section -->
+    <section id="references">
+      <div class="flex flex-col items-center justify-between max-w-6xl px-10 mx-auto space-y-16 my-44 md:flex-row md:space-y-0">
+        <img v-for="image in refImages" :src="image" alt="">
+      </div>
+    </section>
+
+    <!-- Bottom CTA Section -->
+    <section id="bottom">
+      <div class="section-container my-20">
+        <h3>Clipboard for iOS and MacOS</h3>
+        <p class="section-paragraph mb-10">
+          Available for free on the App Store. Download for Mac and iOS, sync with iCloud and you're ready to start
+          adding to your clipboard.
+        </p>
+
+        <!-- Button Container -->
+        <div class="button-container">
+          <a href="#" class="p-4 px-8 rounded-full shadow-lg bg-strongCyan duration-200 hover:opacity-80">
+            Download for iOS
+          </a>
+          <a href="#" class="p-4 px-8 rounded-full shadow-lg bg-lightBlue duration-200 hover:opacity-80">
+            Download for Mac
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-50">
+      <div class="section-container">
+        <div class="flex flex-col items-center justify-between md:flex-row">
+          <!-- Logo Image -->
+          <img src="../assets/clipboard/images/logo.svg" alt="" class="scale-50">
+          <!-- Container for Menus and Social -->
+          <div
+              class="flex flex-col items-center justify-between flex-1 mb-10 space-y-6 md:flex-row md:mb-0
+              md:space-y-0 text-grayishBlue">
+            <!-- Menus -->
+            <div class="flex flex-col space-y-4 md:flex-row md:ml-24 md:space-x-24 md:space-y-0">
+              <!-- Menu -->
+              <div v-for="menus in footerMenus" class="flex flex-col space-4 text-center md:text-left">
+                <div v-for="menuItem in menus">
+                  <a href="#" class="hover:text-strongCyan">{{ menuItem }}</a>
+                </div>
+              </div>
+            </div>
+            <!-- Social Icons -->
+            <div class="flex justify-between w-32 py-1">
+              <a v-for="socialIcon in socialIcons" href="#">
+                <img :src="socialIcon" alt="" class="duration-200 ficon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -169,6 +254,10 @@ h5 {
 
 .clipboard-container {
   @apply bg-[url('../assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain;
+}
+
+.ficon:hover {
+  filter: invert(53%) sepia(68%) saturate(434%) hue-rotate(121deg) brightness(101%) contrast(94%);
 }
 
 @media (max-width: 576px) {
