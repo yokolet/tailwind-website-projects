@@ -1,5 +1,25 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 
+interface IItem {
+  title: string;
+  description: string;
+}
+
+const items = ref<IItem[]>([
+  {
+    title: 'Quick Search',
+    description: 'Easily search your snippets by content, category, web address, application and more.',
+  },
+  {
+    title: 'iCloud Sync',
+    description: 'Instantly saves and syncs snippets access all your devices.',
+  },
+  {
+    title: 'Completely History',
+    description: 'Retrieve any snippets from the first moment you started using the app.'
+  }
+]);
 </script>
 
 <template>
@@ -23,7 +43,7 @@
         </p>
 
         <!-- Button container -->
-        <div class="flex flex-col justify-center w-full space-y-6 text-xl text-white md:flex-row md:space-y-0 md:space-x-4">
+        <div class="button-container">
           <a href="#" class="p-4 px-8 rounded-full shadow-lg bg-strongCyan duration-200 hover:opacity-80">
             Download for iOS
           </a>
@@ -40,10 +60,44 @@
         <h3>
           Keep track of your snippets
         </h3>
-        <p class="max-w-3xl mx-auto mb-24 text-xl leading-9 text-center text-grayishBlue">
+        <p class="section-paragraph">
           Clipboard instantly stores any item you copy in the cloud, meaning you can access your snippets
           immediately on all your devices. Our Mac and iOS apps help you organize everything.
         </p>
+      </div>
+    </section>
+    <section id="features">
+      <div class="section-container my-20">
+        <div class="relative flex flex-col md:flex-row md:space-x-32">
+          <!-- Image -->
+          <div class="md:w-1/2">
+            <img src="../assets/clipboard/images/image-computer.png" alt="" class="md:absolute top-0 right-[50%]">
+          </div>
+          <!-- Items Container -->
+          <div class="flex flex-col mt-16 mb-24 space-y-12 text-xl md:w-1/2 md:mb-60 md:text-left md:pl-16">
+            <!-- Items -->
+            <div v-for="item in items" :key="item.title">
+              <h5 class="mb-2 text-2xl font-bold text-darkGrayishBlue">
+                {{ item.title }}
+              </h5>
+              <p class="max-w-md text-grayishBlue">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access Anywhere Section -->
+    <section id="access">
+      <div class="section-container my-20">
+        <h3>Access Clipboard Anywhere</h3>
+        <p class="section-paragraph">
+          Whether you're on the go, or at your computer,
+          you can access all your Clipboard snippets in a few simple clicks.
+        </p>
+        <img src="../assets/clipboard/images/image-devices.png" alt="" class="mx-auto">
       </div>
     </section>
   </div>
@@ -54,17 +108,29 @@ h3 {
   @apply mb-8 text-4xl font-bold text-darkGrayishBlue md:text-5xl;
 }
 
+h5 {
+  @apply mb-2 text-2xl font-bold text-darkGrayishBlue;
+}
+
 .section-container {
-  @apply max-w-6xl mx-auto text-center;
+  @apply max-w-6xl mx-auto text-center px-10;
+}
+
+.section-paragraph {
+  @apply max-w-3xl mx-auto mb-24 text-xl leading-9 text-center text-grayishBlue;
+}
+
+.button-container {
+  @apply flex flex-col justify-center w-full space-y-6 text-xl text-white md:flex-row md:space-y-0 md:space-x-4;
 }
 
 .clipboard-container {
-  @apply bg-[url('../assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain
+  @apply bg-[url('../assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain;
 }
 
 @media (max-width: 576px) {
   .clipboard-container {
-    @apply bg-[url('../assets/clipboard/images/bg-header-mobile.png')]
+    @apply bg-[url('../assets/clipboard/images/bg-header-mobile.png')];
   }
 }
 
