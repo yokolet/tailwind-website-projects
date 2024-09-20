@@ -15,9 +15,9 @@
       </li>
       <li class="text-lg border border-blue-200 p-2 my-4">
         <router-link
-            to="/loop-studio"
+            to="/loop-studios"
             class="text-blue-500 hover:text-blue-300">
-          Loop Studio
+          Loopstudios
         </router-link>
       </li>
     </ul>
