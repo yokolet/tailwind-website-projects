@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 interface IItem {
   desktop: string;
@@ -60,7 +60,16 @@ const socialIcons = ref<string[]>([
     '/src/assets/loopstudios/images/icon-twitter.svg',
     '/src/assets/loopstudios/images/icon-pinterest.svg',
     '/src/assets/loopstudios/images/icon-instagram.svg',
-])
+]);
+
+const openMobileMenu = ref<boolean>(false);
+
+watch(
+    openMobileMenu,
+    (menu, prevMenu) => {
+      console.log('openMobileMenu', prevMenu, ' -> ', menu)
+    }
+);
 </script>
 
 <template>
@@ -80,9 +89,28 @@ const socialIcons = ref<string[]>([
             </div>
           </div>
           <!-- @todo Hamburger Button -->
-
+          <div class="md:hidden">
+            <button
+                id="menu-btn"
+                type="button"
+                class="z-40 block hamburger md:hidden focus:outline-none"
+                :class="openMobileMenu ? 'open' : ''"
+                @click="openMobileMenu = !openMobileMenu"
+            >
+              <span class="hamburger-top"></span>
+              <span class="hamburger-middle"></span>
+              <span class="hamburger-bottom"></span>
+            </button>
+          </div>
         </nav>
         <!-- @todo Mobile Menu -->
+        <div
+            id="menu"
+            v-show="openMobileMenu"
+            class="absolute top-0 bottom-0 left-0 flex flex-col self-end w-full min-h-screen py-1 pt-40 pl-12
+            space-y-3 text-lg text-white uppercase bg-black md:hidden">
+          <a v-for="menu in menus" href="#" class="hover:text-pink-500">{{ menu }}</a>
+        </div>
         <div class="max-w-lg mt-32 mb-32 p-4 font-josefin text-4xl text-white uppercase border-2 md:p-10 md:m-32 md:mx-0 md:text-6xl">
           Impressive Experiences That Deliver
         </div>
@@ -242,5 +270,40 @@ h5 {
   #hero {
     @apply bg-[url('../assets/loopstudios/images/mobile/image-hero.jpg')] bg-center;
   }
+}
+
+/* Hamburger Menu */
+.hamburger {
+  @apply relative cursor-pointer w-[24px] h-[24px] transition-all duration-[250];
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  @apply absolute w-[24px] h-[2px] top-0 left-0 bg-white rotate-0 transition-all duration-500;
+}
+
+.hamburger-middle {
+  @apply translate-y-[7px]
+}
+
+.hamburger-bottom {
+  @apply translate-y-[14px]
+}
+
+.open {
+  @apply rotate-90
+}
+
+.open .hamburger-top {
+  @apply rotate-45 translate-y-[6px] -translate-x-[6px]
+}
+
+.open .hamburger-middle {
+  @apply hidden
+}
+
+.open .hamburger-bottom {
+  @apply -rotate-45 translate-y-[6px] -translate-x-[6px]
 }
 </style>
