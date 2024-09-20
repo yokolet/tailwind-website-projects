@@ -73,7 +73,7 @@ watch(
 </script>
 
 <template>
-  <div class="">
+  <div id="app">
     <!-- Hero Section -->
     <section id="hero">
       <div class="max-w-6xl mx-auto px-6 py-12">
@@ -241,6 +241,10 @@ watch(
 <style scoped>
 h5 {
   @apply absolute px-6 duration-200 w-52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black
+}
+
+#app {
+  @apply font-josefin
 }
 
 #hero {
