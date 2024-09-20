@@ -2,13 +2,62 @@
 
 import { ref } from 'vue';
 
+interface IItem {
+  desktop: string;
+  mobile: string;
+  title: string;
+}
+
 const menus = ref<string[]>([
     'About', 'Careers', 'Events', 'Products', 'Support',
-])
+]);
+
+const items = ref<IItem[]>([
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-deep-earth.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-deep-earth.jpg',
+    title: 'Deep Earth',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-night-arcade.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-night-arcade.jpg',
+    title: 'Night Arcade',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-soccer-team.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-soccer-team.jpg',
+    title: 'Soccer Team VR',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-grid.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-grid.jpg',
+    title: 'The Grid',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-from-above.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-from-above.jpg',
+    title: 'From Up Above VR',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-pocket-borealis.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-pocket-borealis.jpg',
+    title: 'Pocket Borealis',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-curiosity.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-curiosity.jpg',
+    title: 'The Curiosity',
+  },
+  {
+    desktop: '/src/assets/loopstudios/images/desktop/image-fisheye.jpg',
+    mobile: '/src/assets/loopstudios/images/mobile/image-fisheye.jpg',
+    title: 'Make It Fisheye',
+  },
+]);
 </script>
 
 <template>
-  <div class="container">
+  <div class="">
     <!-- Hero Section -->
     <section id="hero">
       <div class="max-w-6xl mx-auto px-6 py-12">
@@ -53,12 +102,94 @@ const menus = ref<string[]>([
         </div>
       </div>
     </section>
+    <!-- Creations Section -->
+    <section id="creations">
+      <!-- Creations Container -->
+      <div class="mx-w-6xl mx-auto my-32 px-6 text-gray-900 md:px-0">
+        <!-- Creations Header -->
+        <div class="flex justify-center mb-20 md:justify-between">
+          <h2 class="text-4xl text-center uppercase md:text-left md:text-5xl">
+            Our Creations
+          </h2>
+          <button class="hidden btn md:block">
+            See All
+          </button>
+        </div>
+        <!-- Items Container -->
+        <div class="item-container">
+          <!-- Item -->
+          <div v-for="item in items.slice(0, 4) " class="group item">
+            <!-- Desktop Image -->
+            <img
+                :src="item.desktop"
+                alt=""
+                class="hidden w-full duration-200 md:block group-hover:scale-110" />
+            <!-- Mobile Image -->
+            <img
+                :src="item.mobile"
+                alt=""
+                class="md:hidden w-full" />
+            <!-- Item Gradient -->
+            <div class="item-gradient"></div>
+            <!-- Item Text -->
+            <h5>{{ item.title }}</h5>
+          </div>
+        </div>
+        <!-- Items Container 2 -->
+        <div class="item-container mt-10">
+          <!-- Item -->
+          <div v-for="item in items.slice(4) " class="group item">
+            <!-- Desktop Image -->
+            <img
+                :src="item.desktop"
+                alt=""
+                class="hidden w-full duration-200 md:block group-hover:scale-110" />
+            <!-- Mobile Image -->
+            <img
+                :src="item.mobile"
+                alt=""
+                class="md:hidden w-full" />
+            <!-- Item Gradient -->
+            <div class="item-gradient"></div>
+            <!-- Item Text -->
+            <h5>{{ item.title }}</h5>
+          </div>
+        </div>
+        <!-- Bottom Button Container -->
+        <div class="flex justify-center mt-10 md:hidden">
+          <button class="btn w-full md:hidden">See All</button>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
+h5 {
+  @apply absolute px-6 duration-200 w-52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black
+}
+
 #hero {
   @apply bg-[url('../assets/loopstudios/images/desktop/image-hero.jpg')] bg-no-repeat bg-cover;
+}
+
+.btn {
+  @apply px-10 py-2 my-0 font-bold tracking-widest uppercase border-2 border-black font-alata
+  hover:bg-black hover:text-white
+}
+
+.item-container {
+  @apply flex flex-col justify-between w-full space-y-6 text-2xl text-white uppercase md:flex-row
+  md:space-y-0 md:space-x-8;
+}
+
+.item {
+  @apply relative overflow-hidden md:w-1/4
+}
+
+.item-gradient {
+  @apply absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b from-transparent to-gray-900
+  group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70
 }
 
 @media(max-width: 576px) {
