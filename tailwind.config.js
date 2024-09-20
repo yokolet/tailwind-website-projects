@@ -18,7 +18,14 @@ export default {
         darkGrayishBlue: 'hsl(210, 10%, 33%)',
         grayishBlue: 'hsl(201, 11%, 66%)',
       },
-      fontFamily: ['Bai Jamjuree', 'sans-serif'],
+      fontFamily: {
+        sans: ['Bai Jamjuree', 'sans-serif'],
+        josefin: ['Josefin Sans', 'sans-serif'],
+        alata: ['Alata'],
+      },
+      letterSpacing: {
+        widest: '.3em',
+      }
     },
   },
   plugins: [],
