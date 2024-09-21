@@ -29,6 +29,7 @@ export default {
         sans: ['Bai Jamjuree', 'sans-serif'],
         josefin: ['Josefin Sans', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
+        barlow: ['Barlow Semi Condensed', 'sans-serif'],
         alata: ['Alata'],
       },
       spacing: {

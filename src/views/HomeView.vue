@@ -27,6 +27,13 @@
           Shortly
         </router-link>
       </li>
+      <li class="text-lg border border-blue-200 p-2 my-4">
+        <router-link
+            to="/testimonial-grid"
+            class="text-blue-500 hover:text-blue-300">
+          Testimonial Grid
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
