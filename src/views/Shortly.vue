@@ -12,6 +12,10 @@ interface IStat {
   description: string;
 }
 
+interface IFooter {
+  [key: string]: string[];
+}
+
 const urls = ref<IURL[]>([
   {
     fullUrl: 'https://frontendmentor.io',
@@ -51,6 +55,20 @@ const statistics = ref<IStat[]>([
   },
 ]);
 
+const footerMenus = ref<IFooter>({
+  'features': [
+      'link shortening', 'branded links', 'analytics',
+  ],
+  'resources': [
+      'blog', 'developer', 'support',
+  ],
+  'company': [
+      'about', 'our team', 'careers', 'contact',
+  ]
+});
+
+const footerOrder = ref<string[]>(['features', 'resources', 'company']);
+
 const validateURL = (url: string) => {
   const regex = new RegExp('^(https?:\\/\\/)?' + // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
@@ -72,6 +90,13 @@ const verifyUrl = () => {
   }
   inputText.value = '';
 }
+
+const socialIcons = ref<string[]>([
+    '/src/assets/shortly/images/icon-facebook.svg',
+    '/src/assets/shortly/images/icon-twitter.svg',
+    '/src/assets/shortly/images/icon-pinterest.svg',
+    '/src/assets/shortly/images/icon-instagram.svg',
+])
 </script>
 
 <template>
@@ -221,11 +246,61 @@ const verifyUrl = () => {
         </div>
       </div>
     </section>
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-darkViolet">
+      <div class="flex flex-col p-2 space-y-6">
+        <h5 class="mx-auto space-y-10 text-4xl font-bold text-center text-white">
+          Boost your links today
+        </h5>
+        <button
+            class="px-10 py-5 mx-auto text-2xl font-bold text-shite rounded-full bg-cyan hover:bg-cyanLight
+            md:text-base md:py-3 focus:outline-none">
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <footer class="py-16 bg-veryDarkViolet">
+      <div class="container flex flex-col items-center justify-between mx-auto space-y-16 md:flex-row md:space-y-0 md:items-start">
+        <!-- Logo -->
+        <img src="../assets/shortly/images/logo.svg" alt="">
+        <!-- Menu Container -->
+        <div class="flex flex-col space-y-16 md:space-x-20 md:flex-row md:space-y-0">
+          <!-- Menus -->
+          <div
+              v-for="footer in footerOrder"
+              class="flex flex-col items-center w-full md:items-start">
+            <div class="mb-5 font-bold text-white capitalize">{{ footer }}</div>
+            <div class="flex flex-col items-center space-y-3 md:items-start">
+              <a
+                  v-for="menu in footerMenus[footer]"
+                  href="#"
+                  class="capitalize text-grayishViolet hover:text-cyan">{{ menu }}</a>
+            </div>
+          </div>
+        </div>
+        <!-- Social Container -->
+        <div class="flex space-x-6">
+          <a v-for="socialIcon in socialIcons"
+             href="#">
+            <img :src="socialIcon" alt="" class="ficon">
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
 #app {
   @apply font-poppins
+}
+
+#cta {
+  @apply bg-[url('../assets/shortly/images/bg-boost-desktop.svg')] bg-no-repeat bg-cover;
+}
+
+.ficon:hover {
+  filter: invert(79%) sepia(61%) saturate(464%) hue-rotate(130deg) brightness(89%) contrast(85%);
 }
 </style>
