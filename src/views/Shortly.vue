@@ -55,6 +55,10 @@ const statistics = ref<IStat[]>([
   },
 ]);
 
+const topMenus = ref<string[]>([
+    'features', 'pricing', 'resources'
+])
+
 const footerMenus = ref<IFooter>({
   'features': [
       'link shortening', 'branded links', 'analytics',
@@ -96,7 +100,9 @@ const socialIcons = ref<string[]>([
     '/src/assets/shortly/images/icon-twitter.svg',
     '/src/assets/shortly/images/icon-pinterest.svg',
     '/src/assets/shortly/images/icon-instagram.svg',
-])
+]);
+
+const openMobileMenu = ref<boolean>(false);
 </script>
 
 <template>
@@ -111,17 +117,12 @@ const socialIcons = ref<string[]>([
           <img src="../assets/shortly/images/logo.svg" alt="">
           <!-- Left Menu -->
           <div class="hidden space-x-8 font-bold lg:flex">
-            <a href="#" class="text-grayishViolet hover:text-veryDarkViolet"
+            <a
+                v-for="menu in topMenus"
+                href="#"
+                class="text-grayishViolet hover:text-veryDarkViolet capitalize"
             >
-              Features
-            </a>
-            <a href="#" class="text-grayishViolet hover:text-veryDarkViolet"
-            >
-              Pricing
-            </a>
-            <a href="#" class="text-grayishViolet hover:text-veryDarkViolet"
-            >
-              Resources
+              {{ menu }}
             </a>
           </div>
         </div>
@@ -132,9 +133,35 @@ const socialIcons = ref<string[]>([
             Sign up
           </a>
         </div>
-        <!-- @todo Hamburger Button -->
+        <!-- Hamburger Button -->
+        <div class="md:hidden">
+          <button
+              id="menu-btn"
+              type="button"
+              class="z-40 block hamburger md:hidden focus:outline-none"
+              :class="openMobileMenu ? 'open' : ''"
+              @click="openMobileMenu = !openMobileMenu"
+          >
+            <span class="hamburger-top bg-[#9c9aa6]"></span>
+            <span class="hamburger-middle bg-[#9c9aa6]"></span>
+            <span class="hamburger-bottom bg-[#9c9aa6]"></span>
+          </button>
+        </div>
       </div>
-      <!-- @todo Mobile Menu -->
+      <!-- Mobile Menu -->
+      <div
+          v-show="openMobileMenu"
+          id="menu"
+          class="absolute flex p-6 rounded-lg bg-darkViolet left-6 right-6 top-20 z-100">
+        <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm">
+          <a
+              v-for="menu in topMenus"
+              href="#"
+              class="w-full text-center">{{ menu }}</a>
+          <a href="#" class="w-full p-6 border-t border-gray-400 text-center">Login</a>
+          <a href="#" class="w-full py-3 text-center rounded-full bg-cyan rounded-full">Sign Up</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
