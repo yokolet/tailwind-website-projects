@@ -73,7 +73,7 @@ watch(
 </script>
 
 <template>
-  <div class="">
+  <div id="app">
     <!-- Hero Section -->
     <section id="hero">
       <div class="max-w-6xl mx-auto px-6 py-12">
@@ -88,7 +88,7 @@ watch(
               <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
             </div>
           </div>
-          <!-- @todo Hamburger Button -->
+          <!-- Hamburger Button -->
           <div class="md:hidden">
             <button
                 id="menu-btn"
@@ -97,13 +97,13 @@ watch(
                 :class="openMobileMenu ? 'open' : ''"
                 @click="openMobileMenu = !openMobileMenu"
             >
-              <span class="hamburger-top"></span>
-              <span class="hamburger-middle"></span>
-              <span class="hamburger-bottom"></span>
+              <span class="hamburger-top bg-white"></span>
+              <span class="hamburger-middle bg-white"></span>
+              <span class="hamburger-bottom bg-white"></span>
             </button>
           </div>
         </nav>
-        <!-- @todo Mobile Menu -->
+        <!-- Mobile Menu -->
         <div
             id="menu"
             v-show="openMobileMenu"
@@ -243,6 +243,10 @@ h5 {
   @apply absolute px-6 duration-200 w-52 bottom-4 md:bottom-8 md:px-10 group-hover:scale-110 group-hover:text-black
 }
 
+#app {
+  @apply font-josefin
+}
+
 #hero {
   @apply bg-[url('../assets/loopstudios/images/desktop/image-hero.jpg')] bg-no-repeat bg-cover;
 }
@@ -270,40 +274,5 @@ h5 {
   #hero {
     @apply bg-[url('../assets/loopstudios/images/mobile/image-hero.jpg')] bg-center;
   }
-}
-
-/* Hamburger Menu */
-.hamburger {
-  @apply relative cursor-pointer w-[24px] h-[24px] transition-all duration-[250];
-}
-
-.hamburger-top,
-.hamburger-middle,
-.hamburger-bottom {
-  @apply absolute w-[24px] h-[2px] top-0 left-0 bg-white rotate-0 transition-all duration-500;
-}
-
-.hamburger-middle {
-  @apply translate-y-[7px]
-}
-
-.hamburger-bottom {
-  @apply translate-y-[14px]
-}
-
-.open {
-  @apply rotate-90
-}
-
-.open .hamburger-top {
-  @apply rotate-45 translate-y-[6px] -translate-x-[6px]
-}
-
-.open .hamburger-middle {
-  @apply hidden
-}
-
-.open .hamburger-bottom {
-  @apply -rotate-45 translate-y-[6px] -translate-x-[6px]
 }
 </style>
