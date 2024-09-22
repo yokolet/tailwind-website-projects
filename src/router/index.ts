@@ -4,6 +4,7 @@ import Clipboard from '../views/Clipboard.vue';
 import LoopStudios from '../views/LoopStudios.vue';
 import Shortly from '../views/Shortly.vue';
 import TestimonialGrid from '../views/TestimonialGrid.vue';
+import Fylo from '../views/Fylo.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/testimonial-grid',
       name: 'testimonial-grid',
       component: TestimonialGrid,
+    },
+    {
+      path: '/fylo',
+      name: 'fylo',
+      component: Fylo,
     },
   ],
 });
