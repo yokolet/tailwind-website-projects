@@ -136,7 +136,9 @@ const contents = ref<IContent[]>([
             {{ content.summary }}
           </p>
           <!-- Small Text -->
-          <p class="mt-6 opacity-50">
+          <p
+              class="mt-6 opacity-50"
+              :class="[index === 0 ? 'line-clamp-6' : '', index === 1 ? 'line-clamp-5' : '']">
             "{{ content.description }}"
           </p>
         </div>
