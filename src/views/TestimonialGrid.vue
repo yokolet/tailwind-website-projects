@@ -110,14 +110,13 @@ const contents = ref<IContent[]>([
 <template>
   <div id="app">
     <!-- Global Container -->
-    <div class="container mx-auto mx-w-7xl p-2 md">
+    <div class="container mx-auto max-w-7xl p-2 md:p-10">
       <!-- Grid Container -->
-      <div
-          v-for="(content, index) in contents"
-          class="text-white"
-      >
+      <div class="grid gap-6 grid-cols-1 text-white md:grid-cols-4 md:grid-rows-2">
         <!-- Box 1 -->
-        <div :class="content.styles">
+        <div
+            v-for="(content, index) in contents"
+            :class="content.styles">
           <!-- Quotes Image -->
           <img
               v-show="index === 0"
