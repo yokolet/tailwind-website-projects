@@ -56,5 +56,10 @@ export default {
       }),
     },
   },
+  variants: {
+    extend: {
+      backgroundImage: ['dark'],
+    },
+  },
   plugins: [],
 }

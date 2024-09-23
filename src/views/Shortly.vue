@@ -106,7 +106,7 @@ const openMobileMenu = ref<boolean>(false);
 </script>
 
 <template>
-  <div id="app">
+  <div id="website">
     <!-- Nav Container -->
     <nav class="relative container mx-auto p-6">
       <!-- Flex Container For All Items -->
@@ -319,7 +319,7 @@ const openMobileMenu = ref<boolean>(false);
 </template>
 
 <style scoped>
-#app {
+#website {
   @apply font-poppins
 }
 
