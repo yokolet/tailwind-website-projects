@@ -8,14 +8,14 @@ const isGrid = ref<boolean>(true);
 </script>
 
 <template>
-  <div id="app">
+  <div id="home">
     <ListView v-show="!isGrid"/>
     <GridView v-show="isGrid"/>
   </div>
 </template>
 
 <style scoped>
-#app {
+#home {
   @apply font-poppins
 }
 </style>
