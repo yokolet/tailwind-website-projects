@@ -5,6 +5,7 @@ import LoopStudios from '../views/LoopStudios.vue';
 import Shortly from '../views/Shortly.vue';
 import TestimonialGrid from '../views/TestimonialGrid.vue';
 import Fylo from '../views/Fylo.vue';
+import BookmarkManager from '../views/BookmarkManager.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/fylo',
       name: 'fylo',
       component: Fylo,
+    },
+    {
+      path: '/bookmark-manager',
+      name: 'bookmark-manager',
+      component: BookmarkManager,
     },
   ],
 });
