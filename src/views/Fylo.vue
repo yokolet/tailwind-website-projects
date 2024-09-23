@@ -1,8 +1,42 @@
 <script setup lang="ts">
 import { useDark, useToggle } from "@vueuse/core";
+import { ref } from 'vue';
+
+interface IItem {
+  image: string;
+  title: string;
+  description: string;
+}
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+const items = ref<IItem[]>([
+  {
+    image: '/src/assets/fylo/images/icon-access-anywhere.svg',
+    title: 'Access your file from anywhere',
+    description: 'The ability to use a smartphone, tablet, or computer to access your account means your files ' +
+        'follow you everywhere.',
+  },
+  {
+    image: '/src/assets/fylo/images/icon-security.svg',
+    title: 'Security you can trust',
+    description: '2-factor authentication and user-controlled encryption are just a couple of the security ' +
+    'features we allow to help secure your files',
+  },
+  {
+    image: '/src/assets/fylo/images/icon-collaboration.svg',
+    title: 'Access your file from anywhere',
+    description: 'The ability to use a smartphone, tablet, or computer to access your account means your files ' +
+        'follow you everywhere.',
+  },
+  {
+    image: '/src/assets/fylo/images/icon-any-file.svg',
+    title: 'Security you can trust',
+    description: '2-factor authentication and user-controlled encryption are just a couple of the security ' +
+        'features we allow to help secure your files',
+  },
+])
 </script>
 
 <template>
@@ -70,6 +104,76 @@ const toggleDark = useToggle(isDark);
         <button class="p-3 rounded-full w-52 bg-accentCyan hover:scale-95">
           Get Started
         </button>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="pt-12 bg-gray-50 dark:bg-darkBlue1">
+      <!-- Features Container -->
+      <div class="container mx-auto px-6 pb-32">
+        <!-- First Row -->
+        <div class="flex flex-col space-y-24 text-center md:flex-row md:space-y-0">
+          <!-- Items -->
+          <div
+              v-for="item in items.slice(0, 2)"
+              class="flex flex-col items-center space-y-2 md:w-1/2">
+            <div class="flex items-center justify-center h-24 mb-6">
+              <img :src="item.image" alt="">
+            </div>
+            <h3 class="text-xl font-bold">{{ item.title }}</h3>
+            <p class="max-w-md">
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+        <!-- Second Row -->
+        <div class="flex flex-col space-y-24 text-center mt-28 md:flex-row md:space-y-0">
+          <!-- Items -->
+          <div
+              v-for="item in items.slice(2)"
+              class="flex flex-col items-center space-y-2 md:w-1/2">
+            <div class="flex items-center justify-center h-24 mb-6">
+              <img :src="item.image" alt="">
+            </div>
+            <h3 class="text-xl font-bold">{{ item.title }}</h3>
+            <p class="max-w-md">
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Productive Section -->
+    <section id="productive" class="bg-white dark:bg-darkBlue">
+      <!-- Productive Container -->
+      <div class="container flex flex-col items-center mx-auto px-6 pt-24 pb-32 md:flex-row md:space-x-16">
+        <!-- Image -->
+        <div class="md:w-1/2">
+          <img src="../assets/fylo/images/illustration-stay-productive.png" alt="" class="mb-10">
+        </div>
+        <!-- Content -->
+        <div class="flex flex-col items-start md:w-1/2">
+          <div class="flex flex-col space-y-5">
+            <h4 class="max-w-md text-xl font-bold md:text-4xl">
+              Stay productive, where you are
+            </h4>
+            <p class="text-md md:text-lg">
+              Never let location be an issue when accessing your files. Fylo has you covered for all of your
+              file storage needs.
+            </p>
+            <p class="text-md md:text-lg">
+              Securely share files and folders with friends, family, and colleagues for live collaboration.
+              No email attachments required.
+            </p>
+          </div>
+          <!-- Link -->
+          <div class="block mt-4">
+            <a href="#" class="border-b order-accentCyan text-accentCyan"
+            >
+              See how Fylo works
+              <img src="../assets/fylo/images/icon-arrow.svg" alt="" class="inline pb-2">
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </div>
