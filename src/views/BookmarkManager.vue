@@ -118,7 +118,9 @@ const FAQs = ref<IFAQ[]>([
         'tempora voluptates iure quia fuga dicta voluptatibus culpa ' +
         'mollitia recusandae delectus id suscipit labore?',
   },
-])
+]);
+
+const openMobileMenu = ref(false);
 </script>
 
 <template>
@@ -128,7 +130,12 @@ const FAQs = ref<IFAQ[]>([
       <div class="flex items-center justify-between space-x-20 my-6">
         <!-- Logo -->
         <div class="z-30">
-          <img src="../assets/bookmark/images/logo-bookmark.svg" alt="" id="logo">
+          <img
+              :src="openMobileMenu
+              ? '/src/assets/bookmark/images/logo-bookmark-footer.svg'
+              : '/src/assets/bookmark/images/logo-bookmark.svg'"
+              alt=""
+              id="logo" />
         </div>
         <!-- Menu Items -->
         <div class="hidden items-center space-x-10 uppercase text-grayishBlue2 md:flex">
@@ -142,11 +149,51 @@ const FAQs = ref<IFAQ[]>([
           >Login</a>
         </div>
         <!-- Hamburger Button -->
-        <button id="menu-btn" class="z-30 block md:hidden focus:outline-none hamburger">
+        <button
+            id="menu-btn"
+            class="z-30 block md:hidden focus:outline-none hamburger"
+            :class="openMobileMenu ? 'open' : ''"
+            @click="openMobileMenu = !openMobileMenu"
+        >
           <span class="hamburger-top bg-black"></span>
           <span class="hamburger-middle bg-black"></span>
           <span class="hamburger-bottom bg-black"></span>
         </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+          v-show="openMobileMenu"
+          id="menu"
+          class="fixed inset-0 z-20 flex flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4
+          tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-veryDarkBlue2">
+        <div class="w-full py-3 text-center">
+          <a
+              href="#features"
+              class="block hover:text-softRed"
+              @click="openMobileMenu = !openMobileMenu"
+          >Features</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a
+              href="#download"
+              class="block hover:text-softRed"
+              @click="openMobileMenu = !openMobileMenu"
+          >Download</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a
+              href="#faq"
+              class="block hover:text-softRed"
+              @click="openMobileMenu = !openMobileMenu"
+          >FAQ</a>
+        </div>
+        <div class="w-full py-3 text-center">
+          <a
+              href="#"
+              class="block hover:text-softRed"
+              @click="openMobileMenu = !openMobileMenu"
+          >Login</a>
+        </div>
       </div>
     </nav>
     <!-- Hero Section -->
@@ -255,7 +302,7 @@ const FAQs = ref<IFAQ[]>([
       </div>
     </section>
     <!-- Download Heading -->
-    <seciont id="download">
+    <section id="download">
       <div class="container mx-auto px-6">
         <h2 class="mb-6 text-3xl font-semibold text-center md:text-4xl">
           Download the extension
@@ -265,7 +312,7 @@ const FAQs = ref<IFAQ[]>([
           like us to prioritize.
         </p>
       </div>
-    </seciont>
+    </section>
 
     <!-- Download Boxes -->
     <section id="download-boxes" class="py-32">
@@ -349,7 +396,7 @@ const FAQs = ref<IFAQ[]>([
           <div class="flex flex-col justify-between items-center mx-auto mf:flex-row md:mx-0">
             <input
                 type="text"
-                class="flex-1 px-6 pt-3 pb-2 mb-4 rounded-lg border-1 border-white focus:outline-none md:mr-3 md:mb-0"
+                class="flex-1 px-6 pt-3 pb-2 mb-4 rounded-lg border-1 border-white focus:outline-none md:mr-3"
                 placeholder="Enter your email address"
             />
             <input
@@ -372,8 +419,8 @@ const FAQs = ref<IFAQ[]>([
             md:flex-row md:space-y-0 md:space-x-14"
         >
           <img src="../assets/bookmark/images/logo-bookmark-footer.svg" alt="" class="mb-1" />
-          <a href="#features" class="uppercase hover:text-softRed hover:text-softRed">Features</a>
-          <a href="#download" class="uppercase hover:text-softRed hover:text-softRed">Download</a>
+          <a href="#features" class="uppercase hover:text-softRed">Features</a>
+          <a href="#download" class="uppercase hover:text-softRed">Download</a>
           <a href="#faq" class="uppercase hover:text-softRed hover:text-softREd">FAQ</a>
         </div>
         <!-- Social Container -->
@@ -393,6 +440,11 @@ const FAQs = ref<IFAQ[]>([
 <style scoped>
 #website {
   @apply font-rubik overflow-x-hidden;
+}
+
+.open .hamburger-top,
+.open .hamburger-bottom {
+  @apply bg-white;
 }
 
 .ficon:hover {
