@@ -39,6 +39,12 @@ const menus = ref<IMenu[]>([
     title: 'Fylo',
     subtitle: 'Fylo landing page with theme changer',
   },
+  {
+    link_to: '/bookmark-manager',
+    bg_color: 'bg-rose-500',
+    title: 'Bookmark Manager',
+    subtitle: 'Bookmark Manager landing page with tabs',
+  },
 ]);
 </script>
 
@@ -51,7 +57,7 @@ const menus = ref<IMenu[]>([
     <div v-for="menu in menus">
       <router-link :to="menu.link_to">
         <div
-            class="relative items-center justify-center h-48 w-96 md:h-64 md:w-64 p-10 hover:opacity-70 duration-200"
+            class="relative items-center justify-center h-48 w-96 md:h-72 md:w-72 p-10 hover:opacity-70 duration-200"
             :class="menu.bg_color"
         >
           <div class="text-2xl text-bold text-center text-white capitalize">{{ menu.title }}</div>
