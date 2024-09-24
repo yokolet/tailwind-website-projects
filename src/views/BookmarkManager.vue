@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import Accordion from '../components/bookmark/Accordion.vue';
 
 interface ITab {
   id: number;
@@ -18,6 +19,11 @@ interface IDownload {
   image: string;
   message: string;
   version: string;
+}
+
+interface IFAQ {
+  question: string;
+  answer: string;
 }
 
 const currentTab = ref<number>(0);
@@ -80,6 +86,37 @@ const downloads = ref<IDownload[]>([
     image: '/src/assets/bookmark/images/logo-opera.svg',
     message: 'Add to Opera',
     version: 'Minimum Version 46',
+  },
+]);
+
+const FAQs = ref<IFAQ[]>([
+  {
+    question: 'What is Bookmark?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ' +
+        'repellat amet doloribus consequuntur eos similique provident ' +
+        'tempora voluptates iure quia fuga dicta voluptatibus culpa ' +
+        'mollitia recusandae delectus id suscipit labore?',
+  },
+  {
+    question: 'How can I request a new browser?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ' +
+        'repellat amet doloribus consequuntur eos similique provident ' +
+        'tempora voluptates iure quia fuga dicta voluptatibus culpa ' +
+        'mollitia recusandae delectus id suscipit labore?',
+  },
+  {
+    question: 'Is there a mobile app?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ' +
+        'repellat amet doloribus consequuntur eos similique provident ' +
+        'tempora voluptates iure quia fuga dicta voluptatibus culpa ' +
+        'mollitia recusandae delectus id suscipit labore?',
+  },
+  {
+    question: 'What about other Chromium browsers?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ' +
+        'repellat amet doloribus consequuntur eos similique provident ' +
+        'tempora voluptates iure quia fuga dicta voluptatibus culpa ' +
+        'mollitia recusandae delectus id suscipit labore?',
   },
 ])
 </script>
@@ -264,6 +301,32 @@ const downloads = ref<IDownload[]>([
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <! -- FAQ Heading -->
+    <section id="faq">
+      <div class="container mx-auto">
+        <h2 class="mb-6 text-3xl font-semibold text-center md:text-4xl">
+          Frequently Asked Questions
+        </h2>
+        <p class="max-w-lg px-6 mx-auto text-center text-grayishBlue2">
+          Here are some of our FAQs If you have any other questions you'd like answered, please feel free to email us.
+        </p>
+      </div>
+    </section>
+    <!-- FAQ Accordion -->
+    <section id="faq-accordion">
+      <div class="container mx-auto px-6 mb-32">
+        <!-- Accordion Container -->
+        <div class="max-w-2xl m-8 mx-auto overflow-hidden">
+          <!-- Tab 1 -->
+          <Accordion
+              v-for="(faq, index) in FAQs"
+              :tabindex="index + 1"
+              :question="faq.question"
+              :answer="faq.answer" />
         </div>
       </div>
     </section>
