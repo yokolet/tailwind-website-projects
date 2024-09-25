@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import imageDaniel from '../assets/testimonial-grid/images/image-daniel.jpg';
+import imageJonathan from '../assets/testimonial-grid/images/image-jonathan.jpg';
+import imageKira from '../assets/testimonial-grid/images/image-kira.jpg';
+import imageJeanette from '../assets/testimonial-grid/images/image-jeanette.jpg';
+import imagePatrick from '../assets/testimonial-grid/images/image-patrick.jpg';
 
 interface IContent {
   styles: string;
@@ -12,7 +17,7 @@ interface IContent {
 const contents = ref<IContent[]>([
   {
     styles: 'relative p-10 rounded-xl bg-purple-700 md:col-span-2',
-    image: '/src/assets/testimonial-grid/images/image-daniel.jpg',
+    image: imageDaniel,
     name: "Daniel Clifford",
     status: "Verified Graduate",
     summary: "I received a job offer mid-course, and the subjects I learned were current, if not more so, in the " +
@@ -28,7 +33,7 @@ const contents = ref<IContent[]>([
   },
   {
     styles: 'p-10 rounded-xl bg-gray-600',
-    image: '/src/assets/testimonial-grid/images/image-jonathan.jpg',
+    image: imageJonathan,
     name: "Jonathan Walters",
     status: "Verified Graduate",
     summary: "The team was very supportive and kept me motivated",
@@ -44,7 +49,7 @@ const contents = ref<IContent[]>([
   },
   {
     styles: 'hidden p-10 rounded-xl text-gray-900 bg-white md:block md:row-span-2',
-    image: '/src/assets/testimonial-grid/images/image-kira.jpg',
+    image: imageKira,
     name: "Kira Whittle",
     status: "Verified Graduate",
     summary: "Such a life-changing experience. Highly recommended!",
@@ -63,7 +68,7 @@ const contents = ref<IContent[]>([
   },
   {
     styles: 'p-10 rounded-xl text-gray-900 bg-white',
-    image: '/src/assets/testimonial-grid/images/image-jeanette.jpg',
+    image: imageJeanette,
     name: "Jeanette Harmon",
     status: "Verified Graduate",
     summary: "An overall wonderful and rewarding experience",
@@ -72,7 +77,7 @@ const contents = ref<IContent[]>([
   },
   {
     styles: 'p-10 rounded-xl bg-gray-900 md:col-span-2',
-    image: '/src/assets/testimonial-grid/images/image-patrick.jpg',
+    image: imagePatrick,
     name: "Patrick Abrams",
     status: "Verified Graduate",
     summary: "Awesome teaching support from TAs who did the bootcamp themselves. " +
@@ -87,7 +92,7 @@ const contents = ref<IContent[]>([
   },
   {
     styles: 'p-10 rounded-xl text-gray-900 bg-white md:hidden',
-    image: '/src/assets/testimonial-grid/images/image-kira.jpg',
+    image: imageKira,
     name: "Kira Whittle",
     status: "Verified Graduate",
     summary: "Such a life-changing experience. Highly recommended!",

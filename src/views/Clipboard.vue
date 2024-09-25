@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import iconBlacklist from '../assets/clipboard/images/icon-blacklist.svg';
+import iconText from '../assets/clipboard/images/icon-text.svg';
+import iconPreview from '../assets/clipboard/images/icon-preview.svg';
+import logoGoogle from '../assets/clipboard/images/logo-google.png';
+import logoIBM from '../assets/clipboard/images/logo-ibm.png';
+import logoMicrosoft from '../assets/clipboard/images/logo-microsoft.png';
+import logoHP from '../assets/clipboard/images/logo-hp.png';
+import logoVectorGraphics from '../assets/clipboard/images/logo-vector-graphics.png';
+import iconFacebook from '../assets/clipboard/images/icon-facebook.svg';
+import iconTwitter from '../assets/clipboard/images/icon-twitter.svg';
+import iconInstagram from '../assets/clipboard/images/icon-instagram.svg';
 
 interface IItem {
   title: string;
@@ -29,26 +40,26 @@ const sitems = ref<ISItem[]>([
   {
     title: 'Create Blacklists',
     description: 'Easily search your snippets by content, category, web address, application and more.',
-    image: '/src/assets/clipboard/images/icon-blacklist.svg',
+    image: iconBlacklist,
   },
   {
     title: 'Plain Text Snippets',
     description: 'Remove unwanted formatting from copied text for a consistent look.',
-    image: '/src/assets/clipboard/images/icon-text.svg',
+    image: iconText,
   },
   {
     title: 'Sneak Preview',
     description: 'Quick preview of all snippets on your Clipboard for easy access.',
-    image: '/src/assets/clipboard/images/icon-preview.svg',
+    image: iconPreview,
   },
 ]);
 
 const refImages = ref<string[]>([
-    '/src/assets/clipboard/images/logo-google.png',
-    '/src/assets/clipboard/images/logo-ibm.png',
-    '/src/assets/clipboard/images/logo-microsoft.png',
-    '/src/assets/clipboard/images/logo-hp.png',
-    '/src/assets/clipboard/images/logo-vector-graphics.png',
+    logoGoogle,
+    logoIBM,
+    logoMicrosoft,
+    logoHP,
+    logoVectorGraphics,
 ]);
 
 const footerMenus = ref<string[][]>([
@@ -66,9 +77,9 @@ const footerMenus = ref<string[][]>([
 ]);
 
 const socialIcons = ref<string[]>([
-    '/src/assets/clipboard/images/icon-facebook.svg',
-    '/src/assets/clipboard/images/icon-twitter.svg',
-    '/src/assets/clipboard/images/icon-instagram.svg',
+    iconFacebook,
+    iconTwitter,
+    iconInstagram,
 ])
 </script>
 
@@ -253,7 +264,7 @@ h5 {
 }
 
 .clipboard-container {
-  @apply bg-[url('../assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain;
+  @apply bg-[url('/src/assets/clipboard/images/bg-header-desktop.png')] bg-no-repeat bg-contain;
 }
 
 .ficon:hover {
@@ -262,7 +273,7 @@ h5 {
 
 @media (max-width: 576px) {
   .clipboard-container {
-    @apply bg-[url('../assets/clipboard/images/bg-header-mobile.png')];
+    @apply bg-[url('/src/assets/clipboard/images/bg-header-mobile.png')];
   }
 }
 

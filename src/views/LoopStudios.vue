@@ -1,6 +1,26 @@
 <script setup lang="ts">
 
 import { ref, watch } from 'vue';
+import desktopDeepEarth from '../assets/loopstudios/images/desktop/image-deep-earth.jpg';
+import mobileDeepEarth from '../assets/loopstudios/images/mobile/image-deep-earth.jpg';
+import desktopNightArcade from '../assets/loopstudios/images/desktop/image-night-arcade.jpg';
+import mobileNightArcade from '../assets/loopstudios/images/mobile/image-night-arcade.jpg';
+import desktopSoccerTeam from '../assets/loopstudios/images/desktop/image-soccer-team.jpg';
+import mobileSoccerTeam from '../assets/loopstudios/images/mobile/image-soccer-team.jpg';
+import desktopGrid from '../assets/loopstudios/images/desktop/image-grid.jpg';
+import mobileGrid from '../assets/loopstudios/images/mobile/image-grid.jpg';
+import desktopFromAbove from '../assets/loopstudios/images/desktop/image-from-above.jpg';
+import mobileFromAbove from '../assets/loopstudios/images/mobile/image-from-above.jpg';
+import desktopPocketBorealis from '../assets/loopstudios/images/desktop/image-pocket-borealis.jpg';
+import mobilePocketBorealis from '../assets/loopstudios/images/mobile/image-pocket-borealis.jpg';
+import desktopCuriosity from '../assets/loopstudios/images/desktop/image-curiosity.jpg';
+import mobileCuriosity from '../assets/loopstudios/images/mobile/image-curiosity.jpg';
+import desktopFisheye from '../assets/loopstudios/images/desktop/image-fisheye.jpg';
+import mobileFisheye from '../assets/loopstudios/images/mobile/image-fisheye.jpg';
+import iconFacebook from '../assets/loopstudios/images/icon-facebook.svg';
+import iconTwitter from '../assets/loopstudios/images/icon-twitter.svg';
+import iconPinterest from '../assets/loopstudios/images/icon-pinterest.svg';
+import iconInstagram from '../assets/loopstudios/images/icon-instagram.svg';
 
 interface IItem {
   desktop: string;
@@ -14,52 +34,52 @@ const menus = ref<string[]>([
 
 const items = ref<IItem[]>([
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-deep-earth.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-deep-earth.jpg',
+    desktop: desktopDeepEarth,
+    mobile: mobileDeepEarth,
     title: 'Deep Earth',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-night-arcade.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-night-arcade.jpg',
+    desktop: desktopNightArcade,
+    mobile: mobileNightArcade,
     title: 'Night Arcade',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-soccer-team.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-soccer-team.jpg',
+    desktop: desktopSoccerTeam,
+    mobile: mobileSoccerTeam,
     title: 'Soccer Team VR',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-grid.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-grid.jpg',
+    desktop: desktopGrid,
+    mobile: mobileGrid,
     title: 'The Grid',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-from-above.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-from-above.jpg',
+    desktop: desktopFromAbove,
+    mobile: mobileFromAbove,
     title: 'From Up Above VR',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-pocket-borealis.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-pocket-borealis.jpg',
+    desktop: desktopPocketBorealis,
+    mobile: mobilePocketBorealis,
     title: 'Pocket Borealis',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-curiosity.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-curiosity.jpg',
+    desktop: desktopCuriosity,
+    mobile: mobileCuriosity,
     title: 'The Curiosity',
   },
   {
-    desktop: '/src/assets/loopstudios/images/desktop/image-fisheye.jpg',
-    mobile: '/src/assets/loopstudios/images/mobile/image-fisheye.jpg',
+    desktop: desktopFisheye,
+    mobile: mobileFisheye,
     title: 'Make It Fisheye',
   },
 ]);
 
 const socialIcons = ref<string[]>([
-    '/src/assets/loopstudios/images/icon-facebook.svg',
-    '/src/assets/loopstudios/images/icon-twitter.svg',
-    '/src/assets/loopstudios/images/icon-pinterest.svg',
-    '/src/assets/loopstudios/images/icon-instagram.svg',
+    iconFacebook,
+    iconTwitter,
+    iconPinterest,
+    iconInstagram,
 ]);
 
 const openMobileMenu = ref<boolean>(false);
@@ -248,7 +268,7 @@ h5 {
 }
 
 #hero {
-  @apply bg-[url('../assets/loopstudios/images/desktop/image-hero.jpg')] bg-no-repeat bg-cover;
+  @apply bg-[url('/src/assets/loopstudios/images/desktop/image-hero.jpg')] bg-no-repeat bg-cover;
 }
 
 .btn {
@@ -272,7 +292,7 @@ h5 {
 
 @media(max-width: 576px) {
   #hero {
-    @apply bg-[url('../assets/loopstudios/images/mobile/image-hero.jpg')] bg-center;
+    @apply bg-[url('/src/assets/loopstudios/images/mobile/image-hero.jpg')] bg-center;
   }
 }
 </style>

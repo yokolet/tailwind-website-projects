@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import iconBrandRecognition from '../assets/shortly/images/icon-brand-recognition.svg';
+import iconDetailedRecords from '../assets/shortly/images/icon-detailed-records.svg';
+import iconFullyCustomizable from '../assets/shortly/images/icon-fully-customizable.svg';
+import iconFacebook from '../assets/shortly/images/icon-facebook.svg';
+import iconTwitter from '../assets/shortly/images/icon-twitter.svg';
+import iconPinterest from '../assets/shortly/images/icon-pinterest.svg';
+import iconInstagram from '../assets/shortly/images/icon-instagram.svg';
 
 interface IURL {
   fullUrl: string;
@@ -36,19 +43,19 @@ const errorMsg = ref<string>('');
 
 const statistics = ref<IStat[]>([
   {
-    image: '/src/assets/shortly/images/icon-brand-recognition.svg',
+    image: iconBrandRecognition,
     title: 'Brand Recognition',
     description: "Boost your brand recognition with each click. Generic links don't mean a thing. Brand links " +
         "help instil confidence in your content",
   },
   {
-    image: '/src/assets/shortly/images/icon-detailed-records.svg',
+    image: iconDetailedRecords,
     title: 'Detailed Records',
     description: "Gain insights into who is clicking your links. Knowing when and where people engage with your " +
         "content helps inform better decisions.",
   },
   {
-    image: '/src/assets/shortly/images/icon-fully-customizable.svg',
+    image: iconFullyCustomizable,
     title: 'Fully Customizable',
     description: "Improve brand awareness and content discoverability through customizable links, " +
         "supercharging audience engagement.",
@@ -96,10 +103,10 @@ const verifyUrl = () => {
 }
 
 const socialIcons = ref<string[]>([
-    '/src/assets/shortly/images/icon-facebook.svg',
-    '/src/assets/shortly/images/icon-twitter.svg',
-    '/src/assets/shortly/images/icon-pinterest.svg',
-    '/src/assets/shortly/images/icon-instagram.svg',
+    iconFacebook,
+    iconTwitter,
+    iconPinterest,
+    iconInstagram,
 ]);
 
 const openMobileMenu = ref<boolean>(false);
@@ -324,7 +331,7 @@ const openMobileMenu = ref<boolean>(false);
 }
 
 #cta {
-  @apply bg-[url('../assets/shortly/images/bg-boost-desktop.svg')] bg-no-repeat bg-cover;
+  @apply bg-[url('/src/assets/shortly/images/bg-boost-desktop.svg')] bg-no-repeat bg-cover;
 }
 
 .ficon:hover {

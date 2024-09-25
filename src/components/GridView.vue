@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Clipboard from '../views/Clipboard.vue';
 
 interface IMenu {
   link_to: string;
