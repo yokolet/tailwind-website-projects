@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Accordion from '../components/bookmark/Accordion.vue';
+import illustrationFeaturesTab1 from '../assets/bookmark/images/illustration-features-tab-1.svg';
+import illustrationFeaturesTab2 from '../assets/bookmark/images/illustration-features-tab-2.svg';
+import illustrationFeaturesTab3 from '../assets/bookmark/images/illustration-features-tab-3.svg';
+import logoChrome from '../assets/bookmark/images/logo-chrome.svg';
+import logoFirefox from '../assets/bookmark/images/logo-firefox.svg';
+import logoOpera from '../assets/bookmark/images/logo-opera.svg';
 
 interface ITab {
   id: number;
@@ -46,7 +52,7 @@ const tabs = ref<ITab[]>([
 const panels = ref<IPanel[]>([
   {
     id: 0,
-    image: '/src/assets/bookmark/images/illustration-features-tab-1.svg',
+    image: illustrationFeaturesTab1,
     title: 'Bookmark in one click',
     description: 'Organize your bookmarks however you like. Our simple ' +
         'drag-and-drop interface gives you complete control over how you ' +
@@ -54,14 +60,14 @@ const panels = ref<IPanel[]>([
   },
   {
     id: 1,
-    image: '/src/assets/bookmark/images/illustration-features-tab-2.svg',
+    image: illustrationFeaturesTab2,
     title: 'Intelligent search',
     description: 'Our powerful search feature will help you find saved sites in no ' +
         'time at all. No need to trawl through all of your bookmarks.',
   },
   {
     id: 2,
-    image: '/src/assets/bookmark/images/illustration-features-tab-3.svg',
+    image: illustrationFeaturesTab3,
     title: 'Share your bookmarks',
     description: 'Easily share your bookmarks and collections with others. Create ' +
         'a shareable a link that you can send at the click of a button.',
@@ -71,19 +77,19 @@ const panels = ref<IPanel[]>([
 const downloads = ref<IDownload[]>([
   {
     margin: '',
-    image: '/src/assets/bookmark/images/logo-chrome.svg',
+    image: logoChrome,
     message: 'Add to Chrome',
     version: 'Minimum Version 62',
   },
   {
     margin: 'md:mt-8',
-    image: '/src/assets/bookmark/images/logo-firefox.svg',
+    image: logoFirefox,
     message: 'Add to Firefox',
     version: 'Minimum Version 55',
   },
   {
     margin: 'md:mt-16',
-    image: '/src/assets/bookmark/images/logo-opera.svg',
+    image: logoOpera,
     message: 'Add to Opera',
     version: 'Minimum Version 46',
   },

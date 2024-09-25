@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { useDark, useToggle } from "@vueuse/core";
 import { ref } from 'vue';
+import iconAccessAnywhere from '../assets/fylo/images/icon-access-anywhere.svg';
+import iconSecurity from '../assets/fylo/images/icon-security.svg';
+import iconCollaboratione from '../assets/fylo/images/icon-collaboration.svg';
+import iconAnyFile from '../assets/fylo/images/icon-any-file.svg';
+import profileImage1 from '../assets/fylo/images/profile-1.jpg';
+import profileImage2 from '../assets/fylo/images/profile-2.jpg';
+import profileImage3 from '../assets/fylo/images/profile-3.jpg';
 
 interface IItem {
   image: string;
@@ -20,25 +27,25 @@ const toggleDark = useToggle(isDark);
 
 const items = ref<IItem[]>([
   {
-    image: '/src/assets/fylo/images/icon-access-anywhere.svg',
+    image: iconAccessAnywhere,
     title: 'Access your file from anywhere',
     description: 'The ability to use a smartphone, tablet, or computer to access your account means your files ' +
         'follow you everywhere.',
   },
   {
-    image: '/src/assets/fylo/images/icon-security.svg',
+    image: iconSecurity,
     title: 'Security you can trust',
     description: '2-factor authentication and user-controlled encryption are just a couple of the security ' +
     'features we allow to help secure your files',
   },
   {
-    image: '/src/assets/fylo/images/icon-collaboration.svg',
+    image: iconCollaboratione,
     title: 'Access your file from anywhere',
     description: 'The ability to use a smartphone, tablet, or computer to access your account means your files ' +
         'follow you everywhere.',
   },
   {
-    image: '/src/assets/fylo/images/icon-any-file.svg',
+    image: iconAnyFile,
     title: 'Security you can trust',
     description: '2-factor authentication and user-controlled encryption are just a couple of the security ' +
         'features we allow to help secure your files',
@@ -47,21 +54,21 @@ const items = ref<IItem[]>([
 
 const customers = ref<ICustomer[]>([
   {
-    image: '/src/assets/fylo/images/profile-1.jpg',
+    image: profileImage1,
     description: 'Fylo has improved our team productivity by an order of magnitude. ' +
         'Since making the switch our team has become a well-oiled collaboration machine.',
     name: 'Satish Patel',
     company: 'Founder & CEO. Huddle',
   },
   {
-    image: '/src/assets/fylo/images/profile-2.jpg',
+    image: profileImage2,
     description: 'Fylo has improved our team productivity by an order of magnitude. ' +
         'Since making the switch our team has become a well-oiled collaboration machine.',
     name: 'Bruce McKenzie',
     company: 'Founder & CEO. Huddle 2',
   },
   {
-    image: '/src/assets/fylo/images/profile-3.jpg',
+    image: profileImage3,
     description: 'Fylo has improved our team productivity by an order of magnitude. ' +
         'Since making the switch our team has become a well-oiled collaboration machine.',
     name: 'Eva Boyd',
