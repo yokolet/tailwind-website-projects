@@ -1,0 +1,39 @@
+image: "node:latest"
+
+# Cache packages in between builds
+cache:
+  paths:
+    - node_modules/
+    - bun.lockb
+
+stages:
+  - build
+  - deploy
+
+.setup:
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq cmake unzip
+    - curl -o- -fsSL https://bun.sh/install | bash
+    - export PATH="$HOME/.bun/bin:$PATH"
+    - bun -v
+
+build:
+  extends: .setup
+  stage: build
+  script:
+    - bun install
+    - bun run build
+    - cp -a dist/. public/
+  artifacts:
+    paths:
+      - public
+
+pages:
+  stage: deploy
+  script:
+    - echo 'Pages deployment job'
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
