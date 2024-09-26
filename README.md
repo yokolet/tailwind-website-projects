@@ -1,18 +1,37 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite + Tailwind CSS
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The application has 6 website projects from
+https://github.com/bradtraversy/tailwind-course-projects/tree/main/website-projects .
 
-## Recommended IDE Setup
+The original projects are simply implemented by HTML and Tailwind CSS.
+Those are built on Vue 3, TypeScript and Vite.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The application is deployed to https://yokolet.gitlab.io/tailwind-website-projects/ .
 
-## Type Support For `.vue` Imports in TS
+## How to Run the application locally
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Prerequisite
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- node: https://nodejs.org/en
+- bun: https://bun.sh/
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### Clone or Download the Repo
+
+`$ git clone git@gitlab.com:yokolet/tailwind-website-projects.git`
+
+### Install packages
+
+`$ bun install`
+
+### Run the App
+
+`$ bun run dev`
+
+Then, go to http://localhost:5173
+
+## GitLab Pages
+
+The repo includes a setting to deploy to GitLab pages.
+If you deploy to the GitLab pages:
+1. Update `vite.config.ts` so that `base` points `/<your-repo>/`.
+2. At your GitLab repository, go to the left side menu: Deploy -> Pages -> uncheck "Use unique domain"
