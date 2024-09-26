@@ -38,7 +38,7 @@ export default {
         veryDarkBlue2: 'hsl(229, 31%, 21%)',
       },
       fontFamily: {
-        sans: ['Bai Jamjuree', 'sans-serif'],
+        baijam: ['Bai Jamjuree', 'sans-serif'],
         josefin: ['Josefin Sans', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         barlow: ['Barlow Semi Condensed', 'sans-serif'],
