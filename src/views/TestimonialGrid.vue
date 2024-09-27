@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import imageDaniel from '../assets/testimonial-grid/images/image-daniel.jpg';
-import imageJonathan from '../assets/testimonial-grid/images/image-jonathan.jpg';
-import imageKira from '../assets/testimonial-grid/images/image-kira.jpg';
-import imageJeanette from '../assets/testimonial-grid/images/image-jeanette.jpg';
-import imagePatrick from '../assets/testimonial-grid/images/image-patrick.jpg';
+import imageDaniel from '/src/assets/testimonial-grid/images/image-daniel.jpg';
+import imageJonathan from '/src/assets/testimonial-grid/images/image-jonathan.jpg';
+import imageKira from '/src/assets/testimonial-grid/images/image-kira.jpg';
+import imageJeanette from '/src/assets/testimonial-grid/images/image-jeanette.jpg';
+import imagePatrick from '/src/assets/testimonial-grid/images/image-patrick.jpg';
 
 interface IContent {
   styles: string;
@@ -113,12 +113,12 @@ const contents = ref<IContent[]>([
 </script>
 
 <template>
-  <div id="app">
+  <div class="testimonial-container">
     <!-- Global Container -->
     <div class="container mx-auto max-w-7xl p-2 md:p-10">
       <!-- Grid Container -->
       <div class="grid gap-6 grid-cols-1 text-white md:grid-cols-4 md:grid-rows-2">
-        <!-- Box 1 -->
+        <!-- Boxes -->
         <div
             v-for="(content, index) in contents"
             :class="content.styles">
@@ -153,7 +153,7 @@ const contents = ref<IContent[]>([
 </template>
 
 <style scoped>
-#app {
+.testimonial-container {
   @apply font-barlow bg-gray-200;
 }
 </style>

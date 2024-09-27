@@ -4,7 +4,7 @@ The application has 6 website projects from
 https://github.com/bradtraversy/tailwind-course-projects/tree/main/website-projects .
 
 The original projects are simply implemented by HTML and Tailwind CSS.
-Those are built on Vue 3, TypeScript and Vite.
+While the projects here are built on Vue 3, TypeScript and Vite.
 
 The application is deployed to https://yokolet.gitlab.io/tailwind-website-projects/ .
 
