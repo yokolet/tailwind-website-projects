@@ -32,7 +32,7 @@ import Footer from '../components/shortly/Footer.vue';
   </div>
 </template>
 
-<style scoped>
+<style>
 .shortly-container {
   @apply font-poppins
 }

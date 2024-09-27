@@ -33,7 +33,7 @@ import Footer from '../components/fylo/Footer.vue';
   </div>
 </template>
 
-<style scoped>
+<style>
 .fylo-container {
   @apply min-h-screen w-screen font-opensans dark:bg-darkBlue dark:text-white;
 }
